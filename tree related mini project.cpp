@@ -125,6 +125,72 @@ void DisplayTree()
 	}
 	cout<<endl;
 }
+int CountNodeWhoseDegreeIsZero(struct treeNode* ptr)
+{
+	int x,y;
+	if(ptr==NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		x=CountNodeWhoseDegreeIsZero(ptr->lchild);
+		y=CountNodeWhoseDegreeIsZero(ptr->rchild);
+		if(ptr->lchild==NULL && ptr->rchild==NULL)
+		{
+			return x+y+1;
+		}
+		else
+		{
+			return x+y;
+		}
+	}
+}
+int CountNodeWhoseDegreeIsOne(struct treeNode* ptr)
+{
+	int x,y;
+	if(ptr==NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		x=CountNodeWhoseDegreeIsOne(ptr->lchild);
+		y=CountNodeWhoseDegreeIsOne(ptr->rchild);
+		if((ptr->lchild!=NULL && ptr->rchild==NULL)||(ptr->lchild==NULL && ptr->rchild!=NULL))
+		{
+			return x+y+1;
+		}
+		else
+		{
+			return x+y;
+		}
+	}
+}
+int CountNodeWhoseDegreeIsOneandTwo(struct treeNode* ptr)
+{
+    int x,y;
+
+    if(ptr==NULL)
+    {
+        return 0;
+    }
+    
+    else
+    {
+      x=CountNodeWhoseDegreeIsOneandTwo(ptr->lchild);
+      y=CountNodeWhoseDegreeIsOneandTwo(ptr->rchild);
+
+      if(ptr->lchild!=NULL || ptr->rchild!=NULL)
+      {
+          return x+y+1;
+      }
+      else
+      {
+          return x+y;
+      }
+    }
+}
 int CountNodeWhoseDegreeIsTwo(struct treeNode* ptr)
 {
 	int x,y;
@@ -176,6 +242,9 @@ int main()
 		cout<<"the Levelorder of the tree is"<<endl;
 		cout<<"count total node in tree is"<<endl;
 		cout<<"count two child node in tree is"<<endl;
+		cout<<"count one child node in tree is"<<endl;
+		cout<<"count zero child node in tree is"<<endl;
+		cout<<"count both one and two node in tree is"<<endl;
 		cout<<"Exit"<<endl;
 		cout<<"----------------------------"<<endl;
 		int choice;
@@ -303,6 +372,27 @@ int main()
 			{
 				cout<<"the count two child node in tree is:";
 				cout<<CountNodeWhoseDegreeIsTwo(root);
+				cout<<endl;
+			}
+			break;
+			case 8:
+			{
+				cout<<"the count zero child node in tree is:";
+				cout<<CountNodeWhoseDegreeIsZero(root);
+				cout<<endl;
+			}
+			break;
+			case 9:
+			{
+				cout<<"the count one child node in tree is:";
+				cout<<CountNodeWhoseDegreeIsOne(root);
+				cout<<endl;
+			}
+			break;
+			case 10:
+			{
+				cout<<"the count both one and two node in tree is:";
+				cout<<CountNodeWhoseDegreeIsOneandTwo(root);
 				cout<<endl;
 			}
 			break;
