@@ -1,2 +1,2 @@
-# tree-related-mini-project
+# binary-tree-related-mini-project
 this project include tree related operations
