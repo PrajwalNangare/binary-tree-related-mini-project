@@ -115,7 +115,7 @@ void Levelorder(struct treeNode* ptr)
 		}
 	}
 }
-void DisplayTree()
+void DisplayGivenBinaryTree()
 {
 	Queue *ptr=first;
 	while(ptr!=NULL)
@@ -212,7 +212,7 @@ int CountNodeWhoseDegreeIsTwo(struct treeNode* ptr)
 		}
 	}
 }
-int Counttotalnodeintree(struct treeNode* ptr)
+int Counttotalnodeingivenbinarytree(struct treeNode* ptr)
 {
 	int x,y;
 	if(ptr==NULL)
@@ -221,8 +221,8 @@ int Counttotalnodeintree(struct treeNode* ptr)
 	}
 	else
 	{
-		x=Counttotalnodeintree(ptr->lchild);
-		y=Counttotalnodeintree(ptr->rchild);
+		x=Counttotalnodeingivenbinarytree(ptr->lchild);
+		y=Counttotalnodeingivenbinarytree(ptr->rchild);
 		return x+y+1;
 	}
 	
@@ -234,28 +234,28 @@ int main()
 	char side;
 	while(true)
 	{
-		cout<<"*******Welcome to the tree  based project*******"<<endl;
-		cout<<"Create tree"<<endl;
-		cout<<"the inorder of the tree is"<<endl;
-		cout<<"the preorder of the tree is"<<endl;
-		cout<<"the postorder of the tree is"<<endl;
-		cout<<"the Levelorder of the tree is"<<endl;
-		cout<<"count total node in tree is"<<endl;
-		cout<<"count two child node in tree is"<<endl;
-		cout<<"count one child node in tree is"<<endl;
-		cout<<"count zero child node in tree is"<<endl;
-		cout<<"count both one and two node in tree is"<<endl;
+		cout<<"*******Welcome to the binary tree based project*******"<<endl;
+		cout<<"Create binary tree"<<endl;
+		cout<<"the inorder of the given binary tree"<<endl;
+		cout<<"the preorder of the given binary tree"<<endl;
+		cout<<"the postorder of the given binary tree"<<endl;
+		cout<<"the Levelorder of the given binary tree"<<endl;
+		cout<<"count total node in given binary tree"<<endl;
+		cout<<"count two child node in given binary tree"<<endl;
+		cout<<"count one child node in given binary tree"<<endl;
+		cout<<"count zero child node in given binary tree"<<endl;
+		cout<<"count both one and two node in given binary tree"<<endl;
 		cout<<"Exit"<<endl;
 		cout<<"----------------------------"<<endl;
 		int choice;
-		cout<<"enter your choice: ";
+		cout<<"enter your choice:";
 		cin>>choice;
 		switch(choice)
 		{
 			case 1:
 			{
-				int data;
-				char side;
+			    int data;
+			    char side;
 			    cout<<"Do You Wants Enter More Data(Y/N):";
 		        char ch;
 		        cin>>ch;
@@ -364,7 +364,7 @@ int main()
 			case 6:
 			{
 				cout<<"the count total node in tree is:";
-				cout<<Counttotalnodeintree(root);
+				cout<<Counttotalnodeingivenbinarytree(root);
 				cout<<endl;
 			}
 			break;
